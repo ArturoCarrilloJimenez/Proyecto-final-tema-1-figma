@@ -1,10 +1,10 @@
 <!-- Navbar Bootstrap con enlaces centrados -->
 <header
   id="navbar"
-  class="navbar navbar-expand-md navbar-dark bg-dark py-2 px-3 mb-4 mt-md-2 rounded-4 shadow container-md"
+  class="navbar navbar-expand-md navbar-dark bg-dark py-2 px-3 mb-4 mt-md-2 rounded-4 shadow container-md position-absolute"
 >
   <!-- Logo -->
-  <a class="navbar-brand col-lg-3">
+  <a class="navbar-brand col-lg-3" routerLink="/">
     <img src="./image/logo_fight_club.png" alt="Logo" width="60" />
   </a>
 
@@ -23,18 +23,16 @@
 
   <!-- Menú de navegación centrado -->
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mx-auto mb-2 mb-md-0">
-      <li class="nav-item"><a class="nav-link px-3" href="#">Home</a></li>
-      <li class="nav-item"><a class="nav-link px-3" href="#">Features</a></li>
-      <li class="nav-item"><a class="nav-link px-3" href="#">Pricing</a></li>
-      <li class="nav-item"><a class="nav-link px-3" href="#">FAQs</a></li>
-      <li class="nav-item"><a class="nav-link px-3" href="#">About</a></li>
+    <ul class="navbar-nav mx-auto mb-2 mb-md-0 text-center">
+      @for( item of menuItems; track $index ) {
+        <li class="nav-item"><a [routerLink]="item.path" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="nav-link px-md-3" href="#">{{ item.title }}</a></li>
+      }
     </ul>
 
     <!-- Botones Login/Sign-up -->
-    <div class="col-lg-4 d-lg-flex justify-content-end">
-      <button type="button" class="btn me-2 fs-4"><i class="bi bi-person-circle"></i></button>
-      <button type="button" class="btn fs-4"><i class="bi bi-basket3-fill"></i></button>
+    <div class="col-lg-4 text-center d-lg-flex justify-content-end">
+      <a [routerLink]="'login'" class="me-2 fs-4 me-4"><i class="bi bi-person-circle"></i></a>
+      <a [routerLink]="'register'" class="fs-4"><i class="bi bi-basket3-fill"></i></a>
     </div>
   </div>
 </header>
