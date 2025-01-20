@@ -1,0 +1,88 @@
+---
+const route = [
+  {
+    path: "/",
+    title: "Home",
+  },
+  {
+    path: "/class",
+    title: "Class",
+  },
+  {
+    path: "/event",
+    title: "Event",
+  },
+  {
+    path: "/contact",
+    title: "Contact",
+  },
+  {
+    path: "/shop",
+    title: "Shop",
+  },
+];
+
+const currentPath = Astro.url.pathname;
+---
+<!-- Navbar Bootstrap con enlaces centrados -->
+<header
+  id="navbar"
+  class="navbar navbar-expand-md navbar-dark bg-dark py-2 px-3 mb-4 mt-md-2 rounded-4 shadow container-md position-fixed"
+>
+  <!-- Logo -->
+  <a class="navbar-brand col-lg-3" href="/">
+    <img src="./image/logo_fight_club.png" alt="Logo" width="60" />
+  </a>
+
+  <!-- Botón hamburguesa -->
+  <button
+    class="navbar-toggler"
+    type="button"
+    data-bs-toggle="collapse"
+    data-bs-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent"
+    aria-expanded="false"
+    aria-label="Toggle navigation"
+  >
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  
+  <!-- Menú de navegación centrado -->
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <hr class="text-secondary" />
+
+    <ul class="navbar-nav mx-auto mb-2 mb-md-0 text-center">
+      {
+        route.map((item) => {
+          return (
+            <li class="nav-item">
+              <a class:list={{'nav-link px-md-3': true, 'active': currentPath === item.path}} href={item.path}>
+                {item.title}
+              </a>
+            </li>
+          );
+        })
+      }
+    </ul>
+
+    <!-- Botones Login/Sign-up -->
+    <div class="col-lg-4 text-center d-lg-flex justify-content-end">
+      <a class="fs-4 me-4" href="/login"><i class="bi bi-person-circle"></i></a>
+      <a class="fs-4"><i class="bi bi-basket3-fill"></i></a>
+    </div>
+  </div>
+</header>
+
+<style>
+  #navbar {
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+  }
+
+  @media (width < 768px) {
+    #navbar {
+      border-radius: 0 !important;
+      position: relative !important;
+    }
+  }
+</style>
