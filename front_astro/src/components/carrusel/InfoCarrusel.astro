@@ -1,0 +1,43 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  bntPrimary: btn;
+  btnSecondary?: btn;
+}
+
+interface btn {
+  text: string;
+  link: string;
+}
+
+const { title, description, bntPrimary, btnSecondary } = Astro.props;
+---
+
+<div
+  class="info-carrusel"
+>
+  <div class="card p-5 bg-dark rounded-5">
+    <div class="card-body text-center">
+      <h3 class="card-title">{title}</h3>
+      <p class="card-text">{description}</p>
+      <a class="btn btn-primary" href={bntPrimary.link} class="card-link"
+        >{bntPrimary.text}</a
+      >
+      {
+        btnSecondary ? (
+          <a
+            class="btn btn-outline-primary"
+            href={btnSecondary.link}
+            class="card-link"
+          >
+            {btnSecondary.text}
+          </a>
+        ) : null
+      }
+    </div>
+  </div>
+</div>
+
+<style>
+</style>

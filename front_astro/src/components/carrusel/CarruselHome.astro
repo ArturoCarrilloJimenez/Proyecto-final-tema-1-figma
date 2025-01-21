@@ -1,0 +1,108 @@
+---
+import Image from "astro/components/Image.astro";
+import InfoCarrusel from "./InfoCarrusel.astro";
+
+import Carrusel1 from "../../assets/image/carrusel1.jpg";
+import Carrusel2 from "../../assets/image/carrusel2.jpg";
+import Carrusel3 from "../../assets/image/carrusel3.jpg";
+import Carrusel4 from "../../assets/image/carrusel4.jpg";
+---
+
+<div
+  id="carouselExampleAutoplaying"
+  class="carousel slide"
+  data-bs-ride="carousel"
+>
+  <div class="carousel-indicators">
+    <button
+      type="button"
+      data-bs-target="#carouselExampleAutoplaying"
+      data-bs-slide-to="0"
+      class="active"
+      aria-current="true"
+      aria-label="Slide 1"></button>
+    <button
+      type="button"
+      data-bs-target="#carouselExampleAutoplaying"
+      data-bs-slide-to="1"
+      aria-label="Slide 2"></button>
+    <button
+      type="button"
+      data-bs-target="#carouselExampleAutoplaying"
+      data-bs-slide-to="2"
+      aria-label="Slide 3"></button>
+    <button
+      type="button"
+      data-bs-target="#carouselExampleAutoplaying"
+      data-bs-slide-to="3"
+      aria-label="Slide 4"></button>
+  </div>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <Image
+        src={Carrusel1}
+        class="d-block w-100 opacity-75 object-fit-cover vh-100"
+        alt="..."
+      />
+      <InfoCarrusel
+        title="Mejora con los Mejores"
+        description="Nuestros entrenadores profesionales están aquí para ayudarte a alcanzar tus metas, ya seas principiante o experto. Clases adaptadas a todos los niveles.¡Comienza tu camino hacia el éxito!"
+        bntPrimary={{ text: 'Conoce a nuestros entrenadores', link: '#' }}
+      />
+    </div>
+    <div class="carousel-item">
+      <Image
+        src={Carrusel2}
+        class="d-block w-100 opacity-75 object-fit-cover vh-100"
+        alt="..."
+      />
+      <InfoCarrusel
+        title="Entrena en el Mejor Entorno"
+        description="Nuestro gimnasio cuenta con instalaciones de alta gama, diseñadas para ofrecerte una experiencia única y eficiente. Ven a conocernos y siente la diferencia."
+        bntPrimary= {{text: 'Comienza cuanto antes', link: '#' }}
+      />
+    </div>
+    <div class="carousel-item">
+      <Image
+        src={Carrusel3}
+        class="d-block w-100 opacity-75 object-fit-cover vh-100"
+        alt="..."
+      />
+      <InfoCarrusel
+        title="Vive la Emoción de Cada Combate"
+        description="Disfruta de los eventos más emocionantes en vivo, desde torneos hasta combates profesionales. ¡Te aseguramos una experiencia inolvidable!"
+        bntPrimary={{ text: 'Ver eventos próximos', link: '#' }}
+      />
+    </div>
+    <div class="carousel-item">
+      <Image
+        src={Carrusel4}
+        class="d-block w-100 opacity-75 object-fit-cover vh-100"
+        alt="..."
+      />
+      <InfoCarrusel
+        title="Equipamiento de Calidad Superior"
+        description=" Equípate con los mejores productos, diseñados para durar y maximizar tu rendimiento. Guantes, ropa y más, disponibles en nuestra tienda."
+        bntPrimary={{ text: 'Visita nuestra tienda', link: '#' }}
+      />
+    </div>
+  </div>
+  <button
+    class="carousel-control-prev"
+    type="button"
+    data-bs-target="#carouselExampleAutoplaying"
+    data-bs-slide="prev"
+  >
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button
+    class="carousel-control-next"
+    type="button"
+    data-bs-target="#carouselExampleAutoplaying"
+    data-bs-slide="next"
+  >
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
