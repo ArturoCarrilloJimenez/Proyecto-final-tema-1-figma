@@ -1,5 +1,6 @@
 ---
 interface Props {
+  right: boolean;
   title: string;
   description: string;
   bntPrimary: btn;
@@ -11,30 +12,32 @@ interface btn {
   link: string;
 }
 
-const { title, description, bntPrimary, btnSecondary } = Astro.props;
+const { title, description, bntPrimary, btnSecondary, right } = Astro.props;
 ---
-
-<div
-  class="info-carrusel"
->
-  <div class="card p-5 bg-dark rounded-5">
-    <div class="card-body text-center">
-      <h3 class="card-title">{title}</h3>
-      <p class="card-text">{description}</p>
-      <a class="btn btn-primary" href={bntPrimary.link} class="card-link"
-        >{bntPrimary.text}</a
-      >
-      {
-        btnSecondary ? (
-          <a
-            class="btn btn-outline-primary"
-            href={btnSecondary.link}
-            class="card-link"
-          >
-            {btnSecondary.text}
-          </a>
-        ) : null
-      }
+<div class="carousel-caption d-flex justify-content-center align-items-center h-100">
+  {right ? <div class="col-xl-6"></div> : <div class="col-xl-6 order-1"></div>}
+  <div class="col-xl-6 col-sm-12 mb-3 opacity-75">
+    <div class="card p-5 bg-dark rounded-5">
+      <div class="card-body text-center">
+        <h1 class="card-title fw-bold">{title}</h1>
+        <br>
+        <p class="card-text fs-5">{description}</p>
+        <br>
+        <a class="btn btn-primary" href={bntPrimary.link} class="card-link"
+          >{bntPrimary.text}</a
+        >
+        {
+          btnSecondary ? (
+            <a
+              class="btn btn-outline-primary"
+              href={btnSecondary.link}
+              class="card-link"
+            >
+              {btnSecondary.text}
+            </a>
+          ) : null
+        }
+      </div>
     </div>
   </div>
 </div>
