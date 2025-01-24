@@ -1,0 +1,45 @@
+---
+import Image from "astro/components/Image.astro";
+
+interface Props {
+  title: string;
+  subtitle: string;
+  description: string;
+  link: string;
+  bgImage: ImageMetadata;
+}
+
+const { title, subtitle, description, link, bgImage } = Astro.props;
+---
+
+<div
+  class="d-flex justify-content-center align-items-center w-100 p-5 position-relative height-size"
+>
+  <Image
+    src={bgImage}
+    alt={title}
+    class="d-block w-100 opacity-75 object-fit-cover position-absolute top-0 left-0 z-n1 rounded-5 height-size"
+  />
+  <div
+    class="bg-dark d-block w-100 opacity-75 object-fit-cover position-absolute top-0 left-0 z-n1 rounded-5 height-size"
+  >
+  </div>
+  <div
+    class="text-center h-100 d-flex flex-column justify-content-center text-white"
+  >
+    <h1 class="fw-bold ">{title}</h1>
+    <p class="card-subtitle">{subtitle}</p>
+    <p class="card-text mt-auto bg-dark opacity-75">{description}</p>
+    <a href={link} class="btn btn-primary">Go somewhere</a>
+  </div>
+</div>
+
+<style>
+    .height-size {
+        height: 50rem;
+    }
+
+    h1 {
+        font-family: 'Times New Roman', Times, serif;
+    }
+</style>

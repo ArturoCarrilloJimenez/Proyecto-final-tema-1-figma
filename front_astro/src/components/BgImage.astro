@@ -1,0 +1,29 @@
+---
+import Image from "astro/components/Image.astro";
+import Layout from "../layouts/Layout.astro";
+
+interface Props {
+  bgImage: ImageMetadata;
+}
+
+const {bgImage} = Astro.props
+// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
+// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+---
+
+<Layout>
+  <div id="eventos"
+    class="d-flex justify-content-center align-items-center w-100 p-5 position-relative"
+  >
+    <Image
+      src={bgImage}
+      alt={"Fondo de eventos"}
+      class="d-block w-100 opacity-25 object-fit-cover vh-100 position-fixed top-0 left-0 z-n1"
+    />
+    <div
+      class="bg-secondary d-block w-100 opacity-25 object-fit-cover vh-100 position-fixed top-0 left-0 z-n1"
+    >
+    </div>
+    <slot />
+  </div>
+</Layout>
