@@ -1,10 +1,41 @@
 ---
-import Layout from '../layouts/Layout.astro';
+import Layout from "../layouts/Layout.astro";
+import ClassCard from "../components/ClassCard.astro";
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import fondoBoxeo from "../assets/image/fondoBoxeo.jpg";
+import fondoK1 from "../assets/image/fondoK1.jpg";
+import fondoMMA from "../assets/image/carrusel1.jpg";
 ---
 
 <Layout>
-
+  <ClassCard
+    bgImage={fondoBoxeo}
+    title="¡Domina el boxeo con nosotros!"
+    subtitle='Carlos "El Tigre" Sánchez'
+    btn={{ text: "Apúntate cuento antes", link: "/contact" }}
+    description={[
+      "Entrenamientos intensivos para todos los niveles. Mejora tu fuerza, resistencia y velocidad con técnicas avanzadas, guiado por entrenadores expertos. ¡Desde principiantes hasta profesionales, te ayudamos a alcanzar tus metas!",
+      "Con más de 10 años de experiencia, Carlos ha formado campeones y es experto en técnica y estrategia.",
+    ]}
+  />
+  <ClassCard
+    bgImage={fondoMMA}
+    title="¡Aprende MMA de manera integral!"
+    subtitle='Javier "El Gladiador" Torres'
+    btn={{ text: "Apúntate cuento antes", link: "/contact" }}
+    description={[
+        'Combina boxeo, kickboxing, grappling y jiu-jitsu para dominar todas las distancias de combate. Desarrolla fuerza física y mental, con clases para todos los niveles, desde iniciación hasta competición.',
+        'Javier es un luchador profesional con más de 15 años de experiencia y ha competido en los mejores eventos de MMA del mundo.',
+      ]}
+  />
+  <ClassCard
+    bgImage={fondoK1}
+    title="¡Domina el Kickboxing K1!"
+    subtitle='Ana "La Tormenta" Pérez'
+    btn={{ text: "Apúntate cuento antes", link: "/contact" }}
+    description={[
+      'Mejora tu potencia, agilidad y coordinación con clases para todos los niveles. Desarrolla resistencia y técnica, ya seas principiante o competidor avanzado.',
+      'Ana es una campeona de K1 con más de 20 años de experiencia y ha competido en los mejores eventos de kickboxing del mundo.',
+    ]}
+  />
 </Layout>
