@@ -1,0 +1,15 @@
+---
+interface Props {
+    type: 'text' | 'password' | 'email' | 'number' | 'tel' | 'url';
+    name: string;
+    placeholder: string;
+    label: string;
+    required: boolean;
+}
+const { type, name, placeholder, label, required } = Astro.props;
+---
+
+<div class="form-floating mb-3">
+    <input type={type} name={name} id={name} class="form-control" placeholder={placeholder} required={required} />
+    <label for="floatingInput">{label}</label>
+  </div>

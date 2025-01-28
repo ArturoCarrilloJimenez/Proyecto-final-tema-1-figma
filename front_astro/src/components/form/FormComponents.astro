@@ -1,0 +1,23 @@
+---
+import InputComponent from './InputComponent.astro';
+
+interface Props {
+    form: form[];
+}
+
+interface form {
+    type: 'text' | 'password' | 'email' | 'number' | 'tel' | 'url';
+    name: string;
+    placeholder: string;
+    label: string;
+    required: boolean;
+}
+
+const {form} = Astro.props;
+---
+<form action="#" method="get">
+    {form.map((input) => (
+        <InputComponent type={input.type} name={input.name} placeholder={input.placeholder} label={input.label} required={input.required} />
+    ))}
+    <button type="submit" class="btn btn-primary w-100">Enviar</button>
+</form>
