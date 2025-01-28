@@ -1,4 +1,6 @@
 ---
+import "../../styles/fonts.css";
+
 import Image from "astro/components/Image.astro";
 
 interface Props {
@@ -13,7 +15,7 @@ const { title, subtitle, description, link, bgImage } = Astro.props;
 ---
 
 <div
-  class="d-flex justify-content-center align-items-center w-100 p-5 position-relative height-size"
+  class="d-flex justify-content-center align-items-center w-100 p-3 p-md-5 position-relative height-size"
 >
   <Image
     src={bgImage}
@@ -27,7 +29,7 @@ const { title, subtitle, description, link, bgImage } = Astro.props;
   <div
     class="text-center h-100 d-flex flex-column justify-content-center text-white"
   >
-    <h1 class=" ">{title}</h1>
+    <h1 class="fs-2 fs-md-1">{title}</h1>
     <p class="card-subtitle">{subtitle}</p>
     <p class="card-text mt-auto">{description}</p>
     <a href={link} class="btn btn-primary">Go somewhere</a>
@@ -35,11 +37,13 @@ const { title, subtitle, description, link, bgImage } = Astro.props;
 </div>
 
 <style>
-    .height-size {
-        height: 50rem;
-    }
+  .height-size {
+    height: 35rem;
+  }
 
-    h1 {
-        font-family: 'Times New Roman', Times, serif;
-    }
+  h1 {
+    font-family: "ProRace";
+    font-style: italic;
+    font-size: 2.5rem;
+  }
 </style>

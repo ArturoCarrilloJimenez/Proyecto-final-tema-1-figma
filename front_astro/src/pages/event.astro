@@ -1,5 +1,5 @@
 ---
-import BgImage from '../layouts/BgImage.astro';
+import BgImage from "../layouts/BgImage.astro";
 import EventCard from "../components/cards/EventCard.astro";
 
 import bgImage from "../assets/image/eventos.jpg";
@@ -8,49 +8,60 @@ import event2 from "../assets/image/evento2.jpg";
 import event3 from "../assets/image/evento3.jpg";
 import event4 from "../assets/image/evento4.jpg";
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+const events = [
+  {
+    title: "¡Prepárate para la Pelea del Año!",
+    subtitle: 'Carlos "El Tigre" Sánchez 🐯 vs Miguel "El Rayo" Hernández ⚡',
+    description: "🔥 ¿Estás listo para vivir la acción en primera fila? 🔥",
+    link: "/#",
+    bgImage: event1,
+  },
+  {
+    title: "¡El combate definitivo está aquí!",
+    subtitle:
+      'Javier "El Gladiador" Torres 🛡️ vs David "El Destructor" Gómez 💥',
+    description:
+      "⚔️ ¿Estás listo para presenciar la batalla más intensa del año? ⚔️",
+    link: "/#",
+    bgImage: event2,
+  },
+  {
+    title: "¡Llega el Torneo K1 que hará temblar la arena!",
+    subtitle: 'Ana "La Tormenta" Pérez 🌩️ vs Laura "La Bestia" Ramírez 🐾',
+    description:
+      "💥 Solo una saldrá victoriosa... ¿Estás listo para ser testigo? 💥",
+    link: "/#",
+    bgImage: event3,
+  },
+  {
+    title: "¡El momento que todos esperaban ha llegado!",
+    subtitle: 'Pedro "La Roca" Díaz 🪨 vs Juan "El Huracán" Martínez 🌪️',
+    description:
+      "🔥 La fuerza de la roca contra la furia del huracán... ¿Quién triunfará? 🔥",
+    link: "/#",
+    bgImage: event4,
+  },
+];
 ---
 
 <BgImage bgImage={bgImage}>
-  <div class="container py-md-5">
-    <div class="row mt-md-5">
-      <div class="col-12 col-md-6 mb-4">
-        <EventCard
-          title="¡Prepárate para la Pelea del Año!"
-          subtitle='Carlos "El Tigre" Sánchez 🐯 vs Miguel "El Rayo" Hernández ⚡'
-          description="🔥 ¿Estás listo para vivir la acción en primera fila? 🔥"
-          link="/#"
-          bgImage={event1}
-        />
-      </div>
-      <div class="col-12 col-md-6 mb-4">
-        <EventCard
-          title="¡El combate definitivo está aquí!"
-          subtitle='Javier "El Gladiador" Torres 🛡️ vs David "El Destructor" Gómez 💥'
-          description="⚔️ ¿Estás listo para presenciar la batalla más intensa del año? ⚔️"
-          link="/#"
-          bgImage={event2}
-        />
-      </div>
-      <div class="col-12 col-md-6 mb-4">
-        <EventCard
-          title="¡Llega el Torneo K1 que hará temblar la arena!"
-          subtitle='Ana "La Tormenta" Pérez 🌩️ vs Laura "La Bestia" Ramírez 🐾'
-          description="💥 Solo una saldrá victoriosa... ¿Estás listo para ser testigo? 💥"
-          link="/#"
-          bgImage={event3}
-        />
-      </div>
-      <div class="col-12 col-md-6 mb-4">
-        <EventCard
-          title="¡El momento que todos esperaban ha llegado!"
-          subtitle='Pedro "La Roca" Díaz 🪨 vs Juan "El Huracán" Martínez 🌪️'
-          description="🔥 La fuerza de la roca contra la furia del huracán... ¿Quién triunfará? 🔥"
-          link="/#"
-          bgImage={event4}
-        />
-      </div>
+  <div class="py-md-5">
+    <div class="row justify-content-center mt-md-5">
+      {
+        events.map((item) => {
+          return (
+            <div class="col-12 col-lg-6 col-xl-4 mb-4">
+              <EventCard
+                title={item.title}
+                subtitle={item.subtitle}
+                description={item.description}
+                link={item.link}
+                bgImage={item.bgImage}
+              />
+            </div>
+          );
+        })
+      }
     </div>
   </div>
 </BgImage>
