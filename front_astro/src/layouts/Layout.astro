@@ -2,6 +2,7 @@
 import "@styles/bootstrap.css";
 import Navbar from "../components/shared/Navbar.astro";
 import Footer from "../components/shared/Footer.astro";
+import { storage } from "../storage";
 ---
 
 <!doctype html>
@@ -16,13 +17,77 @@ import Footer from "../components/shared/Footer.astro";
     />
     <meta name="generator" content={Astro.generator} />
     <title>Fight Club</title>
+    <meta name="description" content="Fight Club - Boxing Gym" />
+    <style>
+      #alertCookies {
+        animation: fadeInRight 1s;
+      }
+
+      @keyframes fadeInRight {
+        from {
+          opacity: 0;
+          transform: translate3d(100%, 0, 0);
+        }
+        to {
+          opacity: 1;
+          transform: none;
+        }
+      }
+
+      @keyframes fadeOutRight {
+        from {
+          opacity: 1;
+          transform: none;
+        }
+        to {
+          opacity: 0;
+          transform: translate3d(100%, 0, 0);
+        }
+      }
+    </style>
   </head>
   <body class="d-flex flex-column min-vh-100">
-    <Navbar></Navbar>
+    <Navbar />
+
+    <!-- Alerta de uso de cookies -->
+    <div
+      id="alertCookies"
+      class="position-fixed top-0 end-0 p-3"
+      style="z-index: 11"
+    >
+      <div class="alert alert-dark alert-dismissible fade show" role="alert">
+        <i class="bi bi-info-circle-fill"></i>
+        <strong>Uso de Cookies</strong> Esta web utiliza cookies para mejorar la
+        experiencia de usuario.
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="alert"
+          aria-label="Close"></button>
+      </div>
+    </div>
 
     <slot />
 
-    <Footer></Footer>
+    <Footer />
     <script src="../bootstrap/dist/js/bootstrap.bundle.js"></script>
+    <script>
+      console.log(localStorage.getItem("showCookies"));
+
+      // Mostrar alerta de cookies si no se ha mostrado antes
+      if (!localStorage.getItem("showCookies")) {
+        document.getElementById("alertCookies")!.style.display = "block";
+        setTimeout(() => {
+          document.getElementById("alertCookies")!.style.animation =
+            "fadeOutRight 1s";
+          setTimeout(() => {
+            document.getElementById("alertCookies")!.style.display = "none";
+          }, 800);
+        }, 10000);
+        localStorage.setItem("showCookies", "true");
+      } else {
+        document.getElementById("alertCookies")!.style.display = "none";
+      }
+    </script>
   </body>
 </html>

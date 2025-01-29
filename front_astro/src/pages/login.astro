@@ -1,10 +1,45 @@
 ---
-import Layout from '../layouts/Layout.astro';
+import BgImage from "../layouts/BgImage.astro";
+import FormComponents from "../components/form/FormComponents.astro";
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import bgImage from "../assets/image/fondoForm.jpg";
+
+interface form {
+  type: "text" | "password" | "email" | "number" | "tel" | "url";
+  name: string;
+  placeholder: string;
+  label: string;
+  required: boolean;
+}
+
+const form: form[] = [
+  {
+    type: "email",
+    name: "email",
+    placeholder: "Correo Electrónico",
+    label: "Correo Electrónico",
+    required: true,
+  },
+  {
+    type: "password",
+    name: "password",
+    placeholder: "Contraseña",
+    label: "Contraseña",
+    required: true,
+  },
+];
 ---
 
-<Layout>
-
-</Layout>
+<BgImage bgImage={bgImage}>
+  <div class="container py-md-5">
+    <div class="row mt-md-5 justify-content-center">
+      <div class="col-lg-6 bg-dark p-5 opacity-75 rounded-2 text-center">
+        <div class="mb-2">
+          <h2>Login</h2>
+          <FormComponents form={form} />
+        </div>
+        <a href="register">Aun no tienes cuenta, regístrate aquí</a>
+      </div>
+    </div>
+  </div>
+</BgImage>

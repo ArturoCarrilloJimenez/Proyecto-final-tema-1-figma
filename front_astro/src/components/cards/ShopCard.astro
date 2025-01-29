@@ -12,26 +12,105 @@ const { title, price, description, image } = Astro.props;
 ---
 
 <div class="card h-100">
-  <Image src={image} class="card-img-top object-fit-cover" style="height: 20rem;" alt={title} />
-  <div class="card-body">
+  <Image
+    src={image}
+    class="card-img-top object-fit-cover"
+    style="height: 20rem;"
+    alt={title}
+  />
+  <div class="card-body w-100 justify-content-end d-flex flex-column">
     <h5 class="card-title">
       <div>{title}</div>
     </h5>
     <p class="card-text fs-5">${price.toFixed(2)}</p>
-    <p class="card-text">{description}</p>
     <div class="d-flex justify-content-around">
-        <a href="#" class="btn btn-primary">
-            <i class="bi bi-eye"></i> View details
-          </a>
-          <a href="#" class="btn btn-outline-primary">
-            <i class="bi bi-cart"></i> Add to cart
-          </a>
+      <btn
+        type="button"
+        class="btn btn-outline-primary"
+        data-bs-toggle="modal"
+        data-bs-target={`#modal-${title
+          .replace(/[^\w\s-]/g, "")
+          .replace(/\s+/g, "-")
+          .toLowerCase()}`}
+      >
+        <i class="bi bi-eye"></i> View details
+      </btn>
+      <btn type="button" class="btn btn-primary">
+        <i class="bi bi-cart"></i> Add to cart
+      </btn>
+    </div>
+  </div>
+</div>
+
+<div
+  class="modal fade"
+  id={`modal-${title
+    .replace(/[^\w\s-]/g, "")
+    .replace(/\s+/g, "-")
+    .toLowerCase()}`}
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content">
+      <div class="modal-body p-0">
+        <button
+          type="button"
+          class="btn-close btn-close-white position-absolute top-0 end-0 p-3"
+          data-bs-dismiss="modal"
+          aria-label="Close"></button>
+        <div class="row align-items-center g-3">
+          <div class="col-lg-6 text-center">
+            <Image src={image} class="w-100 h-100 object-fit-cover" alt={title} />
+          </div>
+          <div class="col-lg-6 p-4">
+            <h1 class="modal-title fs-3" id="exampleModalLabel">{title}</h1>
+            <p>{description}</p>
+            <p class="fs-5 fw-bold">${price.toFixed(2)}</p>
+            <div>
+              <button type="button" class="btn btn-primary">
+                <i class="bi bi-cart"></i> Add to cart
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
 
 <style>
   .card {
-    box-shadow: 0 0 1rem rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.5s;
+  }
+
+  .card:hover {
+    transform: scale(1.05);
+  }
+
+  .card-img-top {
+    transition: transform 0.5s;
+  }
+
+  .card:hover .card-img-top {
+    transform: scale(1.1);
+  }
+
+  .card-body {
+    height: 150%;
+    mask-image: linear-gradient(to top, #000000 32.5%, #00000000 32.5%);
+    position: absolute;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.93);
+    transform: translateY(20%);
+    transition: transform 0.5s;
+  }
+
+  .card:hover .card-body {
+    transform: translateY(0);
+    mask-image: linear-gradient(to top, #000000 32.5%, #00000000 35%);
+    transition: transform 0.5s;
   }
 </style>

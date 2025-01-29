@@ -29,7 +29,7 @@ const { title, subtitle, description, link, bgImage } = Astro.props;
   <div
     class="text-center h-100 d-flex flex-column justify-content-center text-white"
   >
-    <h1 class="fs-2 fs-md-1">{title}</h1>
+    <h1 class="fs-2 fs-md-1 text-capitalize">{title}</h1>
     <p>{subtitle}</p>
     <p class="mt-auto">{description}</p>
     <a href={link} class="btn btn-primary">Go somewhere</a>

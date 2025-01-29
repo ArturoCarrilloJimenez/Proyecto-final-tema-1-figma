@@ -5,7 +5,6 @@ import FormController from "../components/form/FormComponents.astro";
 import BgImage from "../layouts/BgImage.astro";
 
 import bgImage from "../assets/image/fondoForm.jpg";
-import map from "../assets/image/ubicaccion.png";
 
 interface form {
     type: 'text' | 'password' | 'email' | 'number' | 'tel' | 'url';
@@ -70,7 +69,7 @@ const form: form[] = [
                 <li>fightclub@clubdeportivo.com</li>
             </ul>
             <hr>
-            <Image src={map} alt="Ubicación" class="img-fluid rounded-2" />
+            <iframe class="w-100" height="230rem" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3069.096140889997!2d-3.709870223952544!3d40.42090117143891!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd42287c8f906b23%3A0xc765c896af37dc68!2sGran%20V%C3%ADa%2C%2045%2C%20Centro%2C%2028013%20Madrid!5e1!3m2!1ses!2ses!4v1738149511190!5m2!1ses!2ses" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
         <div class="col-lg-1 mb-3"></div>
         <div class="col-lg-6 bg-dark p-5 opacity-75 rounded-2">
