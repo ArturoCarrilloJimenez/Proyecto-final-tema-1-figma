@@ -1347,7 +1347,7 @@ $card-subtitle-color:               null !default;
 $card-border-width:                 var(--#{$prefix}border-width) !default;
 $card-border-color:                 var(--#{$prefix}border-color-translucent) !default;
 $card-border-radius:                var(--#{$prefix}border-radius) !default;
-$card-box-shadow:                   null !default;
+$card-box-shadow:                   0px -1px 2rem 0px rgb(0 0 0 / 41%) !default;
 $card-inner-border-radius:          subtract($card-border-radius, $card-border-width) !default;
 $card-cap-padding-y:                $card-spacer-y * .5 !default;
 $card-cap-padding-x:                $card-spacer-x !default;
@@ -1355,7 +1355,7 @@ $card-cap-bg:                       rgba(var(--#{$prefix}body-color-rgb), .03) !
 $card-cap-color:                    null !default;
 $card-height:                       null !default;
 $card-color:                        null !default;
-$card-bg:                           var(--#{$prefix}body-bg) !default;
+$card-bg:                           $dark !default;
 $card-img-overlay-padding:          $spacer !default;
 $card-group-margin:                 $grid-gutter-width * .5 !default;
 // scss-docs-end card-variables

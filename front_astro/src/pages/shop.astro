@@ -1,10 +1,69 @@
 ---
-import Layout from '../layouts/Layout.astro';
+import BgImage from "../layouts/BgImage.astro";
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import bgImage from "../assets/image/carrusel2.jpg";
+import shop1 from "../assets/image/shop/shop1.jpg";
+import shop2 from "../assets/image/shop/shop2.jpg";
+import shop3 from "../assets/image/shop/shop3.jpg";
+import shop4 from "../assets/image/shop/shop4.jpg";
+import shop5 from "../assets/image/shop/shop5.jpg";
+import shop6 from "../assets/image/shop/shop6.jpg";
+import ShopCard from "../components/cards/ShopCard.astro";
+
+const glovesData = [
+  {
+    title: "Pro Elite Gloves",
+    price: 120.0,
+    description:
+      "Diseñados para profesionales, estos guantes ofrecen máxima protección y durabilidad. Ideales para sesiones de entrenamiento intensivo y combates.",
+    image: shop1,
+  },
+  {
+    title: "Classic Boxing Gloves",
+    price: 60.0,
+    description:
+      "Guantes de cuero clásicos, perfectos para principiantes y entrenamientos ligeros. Combinan confort y resistencia.",
+    image: shop2,
+  },
+  {
+    title: "Competition Gloves",
+    price: 150.0,
+    description:
+      "Pensados para boxeadores avanzados, con un acolchado superior y ajuste ergonómico para ofrecer el mejor rendimiento en cada golpe.",
+    image: shop3,
+  },
+  {
+    title: "Ultra-Light Gloves",
+    price: 85.0,
+    description:
+      "Ideales para velocidad y agilidad, estos guantes ultraligeros están diseñados para maximizar la rapidez de tus movimientos en el ring.",
+    image: shop4,
+  },
+  {
+    title: "Women's Boxing Gloves",
+    price: 75.0,
+    description:
+      "Guantes diseñados especialmente para mujeres, con ajuste anatómico y estilo elegante, sin comprometer la protección y el rendimiento.",
+    image: shop5,
+  },
+  {
+    title: "Limited Edition Gloves",
+    price: 180.0,
+    description:
+      "Guantes de alta gama con detalles exclusivos y acabados de primera calidad. Ideal para quienes buscan estilo y funcionalidad en el ring.",
+    image: shop6,
+  },
+];
 ---
 
-<Layout>
-
-</Layout>
+<BgImage bgImage={bgImage}>
+  <div class="container mx-auto p-md-4 mt-md-5 text-center">
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+      {glovesData.map((glove) => (
+        <div class="col">
+          <ShopCard {...glove} />
+        </div>
+      ))}
+    </div>
+  </div>
+</BgImage>
