@@ -2,7 +2,6 @@
 import "@styles/bootstrap.css";
 import Navbar from "../components/shared/Navbar.astro";
 import Footer from "../components/shared/Footer.astro";
-import { storage } from "../storage";
 ---
 
 <!doctype html>
@@ -72,10 +71,8 @@ import { storage } from "../storage";
     <Footer />
     <script src="../bootstrap/dist/js/bootstrap.bundle.js"></script>
     <script>
-      console.log(localStorage.getItem("showCookies"));
-
-      // Mostrar alerta de cookies si no se ha mostrado antes
-      if (!localStorage.getItem("showCookies")) {
+    // Mostrar alerta de cookies si no se ha mostrado antes
+      if (!sessionStorage.getItem("showCookies")) {
         document.getElementById("alertCookies")!.style.display = "block";
         setTimeout(() => {
           document.getElementById("alertCookies")!.style.animation =
@@ -84,7 +81,7 @@ import { storage } from "../storage";
             document.getElementById("alertCookies")!.style.display = "none";
           }, 800);
         }, 10000);
-        localStorage.setItem("showCookies", "true");
+        sessionStorage.setItem("showCookies", "true");
       } else {
         document.getElementById("alertCookies")!.style.display = "none";
       }

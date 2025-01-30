@@ -59,7 +59,7 @@ const currentPath = Astro.url.pathname;
         route.map((item) => {
           return (
             <li class="nav-item">
-              <a class:list={{'nav-link px-md-3': true, 'active': currentPath === item.path}} href={item.path}>
+              <a class={`nav-link px-md-3 ${currentPath === item.path ? "active" : ""}`} href={item.path}>
                 {item.title}
               </a>
             </li>
