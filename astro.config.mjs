@@ -7,7 +7,7 @@ export default defineConfig({
   vite: {
     resolve: {
       alias: {
-        "@styles": "/public/bootstrap/dist/css",
+        "@styles": "/src/bootstrap/dist/css",
       },
     },
   },
