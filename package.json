@@ -1,15 +1,21 @@
 {
   "name": "front_astro",
   "type": "module",
-  "version": "0.0.1",
+  "version": "1.0.1",
+  "description": "Frontend project with Astro",
+  "homepage": " https://arturocarrillojimenez.github.io/Proyecto-final-tema-1-figma/",
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "deploy": "astro build && gh-pages -d dist"
   },
   "dependencies": {
     "animate.css": "^4.1.1",
     "astro": "^5.1.7"
+  },
+  "devDependencies": {
+    "gh-pages": "^6.3.0"
   }
 }
